@@ -323,7 +323,11 @@
     if (!mail) { $("#okTitle").textContent = lang === "pl" ? "Prawie gotowe!" : EN["ok.title"]; $("#waLink").hidden = false; show(m.ok(d)); return; }
     // Rezerwacja leci mailem do baru (FormSubmit), WhatsApp zostaje jako zapas
     var btn = f.querySelector('button[type="submit"]'); btn.disabled = true; var label = btn.textContent; btn.textContent = m.sendingRes;
+    // Limit czasu: jeśli serwis maili nie odpowie w 12 s, pokazujemy WhatsApp zamiast wiecznego „Wysyłanie…”
+    var ctl = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 12000);
     fetch("https://formsubmit.co/ajax/" + mail, {
+      signal: ctl ? ctl.signal : undefined,
       method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify({
         _subject: "Rezerwacja: " + d.name + ", " + d.people + " os., " + d.dateTxt + " " + d.time,
@@ -334,7 +338,7 @@
     }).then(function (r) { return r.json().then(function (j) { if (!r.ok || String(j.success) !== "true") throw 0; }); })
       .then(function () { $("#okTitle").textContent = m.sentTitle; show(m.sentRes(d)); $("#waLink").hidden = true; f.reset(); dateIn.value = todayStr; },
             function () { $("#okTitle").textContent = lang === "pl" ? "Prawie gotowe!" : EN["ok.title"]; show(m.failRes); $("#waLink").hidden = false; })
-      .then(function () { btn.disabled = false; btn.textContent = label; });
+      .then(function () { clearTimeout(timer); btn.disabled = false; btn.textContent = label; });
   });
 
   // ---------- Wasze wieczory: galeria zdjęć/filmów z wieczorów karaoke ----------
