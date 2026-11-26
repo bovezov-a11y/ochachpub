@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zdjęcia z wieczorów – Och! & Ach!</title>
+<meta name="description" content="Zdjęcia i filmy z wieczorów karaoke w Och! & Ach!. Dodaj swoje.">
+<meta property="og:title" content="Och! & Ach! – karaoke bar na Chmielnej">
+<meta property="og:description" content="Karaoke czw–sob od 21:00, shoty od 6 zł i zniżki studenckie w centrum Warszawy.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/bar.jpg">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="fx.css">
+</head>
+<body>
+<div class="bg-woman" aria-hidden="true"><img src="img/woman.jpg" alt=""></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="site.html" aria-label="Och! & Ach! – strona główna"><img src="img/logo.png" alt="Och! & Ach!" width="315" height="265"></a>
+    <nav class="nav" aria-label="Strony">
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="rezerwacja.html" data-i18n="nav.book">Rezerwacja</a>
+      <a href="wydarzenia.html" data-i18n="nav.events">Wydarzenia</a>
+      <a href="zdjecia.html" aria-current="page" data-i18n="nav.nights">Zdjęcia</a>
+      <a href="opinie.html" data-i18n="nav.reviews">Opinie</a>
+    </nav>
+    <button class="lang" id="langBtn" type="button" aria-label="Change language">EN</button>
+  </div>
+</header>
+
+<main id="top" class="page page-sub">
+  <section class="sec" id="wieczory">
+    <div class="wrap panel">
+      <div class="sec-head">
+        <div><div class="eyebrow" data-i18n="n.eyebrow">Zdjęcia i filmy od gości</div><h2 data-i18n="n.title">Wasze wieczory</h2></div>
+        <p data-i18n="n.lead">Wybierz wieczór, zobacz zdjęcia i filmy z karaoke albo dodaj swoje.</p>
+      </div>
+      <div class="night-tabs" role="tablist" id="nightTabs" aria-label="Wieczory"></div>
+      <div class="wall" id="wall" role="tabpanel"></div>
+
+      <details class="up-wrap" id="upWrap">
+        <summary class="btn btn-primary" data-i18n="u.open">Dodaj swoje zdjęcia lub filmy</summary>
+      <form class="upload qr ig" id="upForm" novalidate>
+        <div class="up-head">
+          <h3 class="h-sub" data-i18n="u.title">Dodaj zdjęcia lub filmy</h3>
+          <p data-i18n="u.lead">Do 10 plików naraz, filmy do 50 MB. Pokazujemy je po szybkiej akceptacji przez obsługę.</p>
+        </div>
+        <label class="drop" for="u-files" id="drop">
+          <span class="drop-big" data-i18n="u.drop">Przeciągnij pliki tutaj albo kliknij</span>
+          <span class="drop-small" data-i18n="u.types">JPG, PNG, HEIC, MP4, MOV</span>
+          <input id="u-files" name="files" type="file" accept="image/*,video/*" multiple>
+        </label>
+        <div class="up-preview" id="upPreview"></div>
+        <div class="up-row">
+          <div class="field">
+            <label for="u-night" data-i18n="u.night">Z którego wieczoru?</label>
+            <select id="u-night" name="night"></select>
+          </div>
+          <div class="field">
+            <label for="u-name" data-i18n="u.name">Twoje imię lub nick (opcjonalnie)</label>
+            <input id="u-name" name="name" maxlength="40" placeholder="@kasia">
+          </div>
+        </div>
+        <label class="check"><input type="checkbox" id="u-ok" name="consent"><span data-i18n="u.consent">Mam zgodę osób widocznych na zdjęciach na ich publikację.</span></label>
+        <span class="err" id="e-up"></span>
+        <div><button class="btn btn-primary" type="submit" data-i18n="u.submit">Wyślij</button></div>
+        <p class="up-status" id="upStatus" aria-live="polite"></p>
+      </form>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="foot-logo" src="img/logo.png" alt="Och! & Ach!" width="315" height="265">
+    <span id="fInfo"></span>
+    <div class="socials" id="fSocial"></div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="sheet.js"></script>
+<script src="app.js"></script>
+<script src="fx.js"></script>
+</body>
+</html>

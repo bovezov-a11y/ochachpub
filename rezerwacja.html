@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rezerwacja – Och! & Ach!</title>
+<meta name="description" content="Zarezerwuj stolik w Och! & Ach! na Chmielnej. Karaoke czw–sob od 21:00.">
+<meta property="og:title" content="Och! & Ach! – karaoke bar na Chmielnej">
+<meta property="og:description" content="Karaoke czw–sob od 21:00, shoty od 6 zł i zniżki studenckie w centrum Warszawy.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/bar.jpg">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="fx.css">
+</head>
+<body>
+<div class="bg-woman" aria-hidden="true"><img src="img/woman.jpg" alt=""></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="site.html" aria-label="Och! & Ach! – strona główna"><img src="img/logo.png" alt="Och! & Ach!" width="315" height="265"></a>
+    <nav class="nav" aria-label="Strony">
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="rezerwacja.html" aria-current="page" data-i18n="nav.book">Rezerwacja</a>
+      <a href="wydarzenia.html" data-i18n="nav.events">Wydarzenia</a>
+      <a href="zdjecia.html" data-i18n="nav.nights">Zdjęcia</a>
+      <a href="opinie.html" data-i18n="nav.reviews">Opinie</a>
+    </nav>
+    <button class="lang" id="langBtn" type="button" aria-label="Change language">EN</button>
+  </div>
+</header>
+
+<main id="top" class="page page-sub">
+  <section class="sec" id="rezerwacja">
+    <div class="wrap panel res">
+      <div class="res-aside">
+        <div class="eyebrow" data-i18n="r.eyebrow">Stolik dla ekipy</div>
+        <h2 data-i18n="r.title">Rezerwacja</h2>
+        <p data-i18n="r.lead">Wypełnij formularz, rezerwacja trafi prosto do nas. Potwierdzimy ją SMS-em lub telefonicznie.</p>
+        <ul>
+          <li data-i18n="r.p1">Na karaoke w weekend lepiej rezerwować wcześniej.</li>
+          <li data-i18n="r.p2">Rezerwacja trzyma stolik 20 minut.</li>
+          <li data-i18n="r.p3">Na ten sam dzień najszybciej: zadzwoń.</li>
+        </ul>
+        <p><span id="resPhone"></span></p>
+      </div>
+
+      <form class="card qr" id="resForm" novalidate>
+        <div class="field">
+          <label for="f-name" data-i18n="f.name">Imię</label>
+          <input id="f-name" name="name" autocomplete="given-name" required placeholder="Kasia">
+          <span class="err" id="e-name"></span>
+        </div>
+        <div class="field">
+          <label for="f-phone" data-i18n="f.phone">Telefon</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+48 600 000 000">
+          <span class="err" id="e-phone"></span>
+        </div>
+        <div class="field">
+          <label for="f-date" data-i18n="f.date">Data</label>
+          <input id="f-date" name="date" type="date" required>
+          <span class="err" id="e-date"></span>
+        </div>
+        <div class="field">
+          <label for="f-time" data-i18n="f.time">Godzina</label>
+          <select id="f-time" name="time" required></select>
+        </div>
+        <div class="field">
+          <label for="f-people" data-i18n="f.people">Liczba osób</label>
+          <input id="f-people" name="people" type="number" min="1" max="30" value="4" required>
+          <span class="err" id="e-people"></span>
+        </div>
+        <div class="field">
+          <span class="lbl" id="l-student" data-i18n="f.student">Studenci?</span>
+          <div class="seg" role="radiogroup" aria-labelledby="l-student">
+            <label><input type="radio" name="student" id="f-student-yes" value="yes" checked><span data-i18n="f.yes">Tak</span></label>
+            <label><input type="radio" name="student" id="f-student-no" value="no"><span data-i18n="f.no">Nie</span></label>
+          </div>
+        </div>
+        <div class="field full">
+          <label for="f-note" data-i18n="f.note">Uwagi (opcjonalnie)</label>
+          <textarea id="f-note" name="note" data-i18n-ph="f.noteph" placeholder="Np. urodziny, chcemy zaśpiewać jako pierwsi"></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit" data-i18n="f.submit">Wyślij rezerwację</button>
+        </div>
+        <div class="ok" id="resOk" hidden aria-live="polite">
+          <h3 id="okTitle">Prawie gotowe!</h3>
+          <p id="okText"></p>
+          <a class="btn btn-wa" id="waLink" target="_blank" rel="noopener" data-i18n="ok.wa">Wyślij na WhatsApp</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="foot-logo" src="img/logo.png" alt="Och! & Ach!" width="315" height="265">
+    <span id="fInfo"></span>
+    <div class="socials" id="fSocial"></div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="sheet.js"></script>
+<script src="app.js"></script>
+<script src="fx.js"></script>
+</body>
+</html>

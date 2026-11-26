@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu – Och! & Ach!</title>
+<meta name="description" content="Menu baru Och! & Ach! na Chmielnej: shoty, piwo, koktajle, przekąski. Karaoke czw–sob od 21:00.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="menu.css">
+<link rel="stylesheet" href="fx.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"><img src="img/woman.jpg" alt=""></div>
+
+<header class="mh">
+  <div class="mh-row">
+    <a href="site.html" aria-label="Och! & Ach! – strona główna"><img class="mh-logo" src="img/logo.png" alt="Och! & Ach!" width="315" height="265"></a>
+    <div class="mh-title">
+      <h1 data-t="title">Menu</h1>
+    </div>
+    <button class="lang" id="lang" type="button" aria-label="Change language">EN</button>
+  </div>
+  <nav class="pnav" aria-label="Strony">
+    <a href="menu.html" aria-current="page" data-t="navMenu">Menu</a>
+    <a href="rezerwacja.html" data-t="navBook">Rezerwacja</a>
+    <a href="wydarzenia.html" data-t="navEvents">Wydarzenia</a>
+    <a href="zdjecia.html" data-t="navPhotos">Zdjęcia</a>
+    <a href="opinie.html" data-t="navReviews">Opinie</a>
+  </nav>
+  <label class="search" for="q">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l4.6 4.6-1.4 1.4-4.6-4.6A7 7 0 1 1 10 3zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/></svg>
+    <input id="q" type="search" autocomplete="off" data-tph="search" placeholder="Szukaj, np. mojito, piwo…">
+  </label>
+  <nav class="chips" id="chips" aria-label="Kategorie"></nav>
+</header>
+
+<main class="mm">
+  <section class="today" id="today" aria-live="polite"></section>
+  <div id="list"></div>
+  <p class="nores" id="nores" hidden></p>
+
+  <section class="foot">
+    <div class="foot-card">
+      <b data-t="karaoke">Karaoke czw–sob od 21:00</b>
+      <span data-t="karaokeT">Zapisz się na piosenkę u DJ-a.</span>
+    </div>
+    <div class="foot-card">
+      <b data-t="student">-20% na koktajle z legitymacją</b>
+      <span data-t="studentT">Pon–czw, tylko na koktajle. Pokaż legitymację przy zamówieniu.</span>
+    </div>
+    <div class="links" id="links"></div>
+    <a class="site" href="site.html" data-t="site">Strona baru, rezerwacje i zdjęcia z wieczorów</a>
+    <p class="fine" data-t="fine">Ceny w złotych, zawierają VAT. Alkohol sprzedajemy tylko osobom pełnoletnim.</p>
+  </section>
+</main>
+
+<button class="top-btn" id="topBtn" type="button" aria-label="Do góry" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l7 7-1.4 1.4L13 9.8V20h-2V9.8l-4.6 4.6L5 13z"/></svg>
+</button>
+
+<script src="data.js"></script>
+<script src="sheet.js"></script>
+<script src="menu.js"></script>
+<script src="fx.js"></script>
+</body>
+</html>

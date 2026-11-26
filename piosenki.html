@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Piosenki karaoke – Och! & Ach!</title>
+<meta name="description" content="Lista piosenek karaoke w Och! & Ach! na Chmielnej: polskie i zagraniczne hity z katalogu iSing.">
+<meta property="og:title" content="Och! & Ach! – karaoke bar na Chmielnej">
+<meta property="og:description" content="Karaoke czw–sob od 21:00, shoty od 6 zł i zniżki studenckie w centrum Warszawy.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/bar.jpg">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="fx.css">
+</head>
+<body>
+<div class="bg-woman" aria-hidden="true"><img src="img/woman.jpg" alt=""></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="site.html" aria-label="Och! & Ach! – strona główna"><img src="img/logo.png" alt="Och! & Ach!" width="315" height="265"></a>
+    <nav class="nav" aria-label="Strony">
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="rezerwacja.html" data-i18n="nav.book">Rezerwacja</a>
+      <a href="wydarzenia.html" aria-current="page" data-i18n="nav.events">Wydarzenia</a>
+      <a href="zdjecia.html" data-i18n="nav.nights">Zdjęcia</a>
+      <a href="opinie.html" data-i18n="nav.reviews">Opinie</a>
+    </nav>
+    <button class="lang" id="langBtn" type="button" aria-label="Change language">EN</button>
+  </div>
+</header>
+
+<main id="top" class="page page-sub">
+  <section class="sec" id="piosenki">
+    <div class="wrap panel">
+      <div class="sec-head">
+        <div><div class="eyebrow" data-i18n="so.eyebrow">Karaoke czw–sob od 21:00</div><h2 data-i18n="so.title">Co zaśpiewasz?</h2></div>
+        <p data-i18n="so.lead">Śpiewamy z katalogu iSing. Poniżej nasze typy, a w pełnym katalogu znajdziesz tysiące piosenek. Wybraną zgłoś DJ-owi.</p>
+      </div>
+      <div class="songs-bar">
+        <label class="song-search" for="songQ">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l4.6 4.6-1.4 1.4-4.6-4.6A7 7 0 1 1 10 3zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/></svg>
+          <input id="songQ" type="search" autocomplete="off" data-i18n-ph="so.search" placeholder="Szukaj: tytuł lub wykonawca">
+        </label>
+        <div class="song-tabs" id="songTabs" role="tablist"></div>
+      </div>
+      <div class="song-cols" id="songList"></div>
+      <div class="song-cat">
+        <div><b data-i18n="so.catT">Nie ma Twojej piosenki?</b><span data-i18n="so.catP">Sprawdź pełny katalog iSing, a potem zapytaj DJ-a.</span></div>
+        <a class="btn btn-primary" id="songCat" target="_blank" rel="noopener" data-i18n="so.catB">Pełny katalog iSing ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="foot-logo" src="img/logo.png" alt="Och! & Ach!" width="315" height="265">
+    <span id="fInfo"></span>
+    <div class="socials" id="fSocial"></div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="sheet.js"></script>
+<script src="app.js"></script>
+<script src="fx.js"></script>
+</body>
+</html>
