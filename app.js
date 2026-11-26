@@ -319,19 +319,20 @@
     };
     $("#waLink").href = "https://wa.me/" + S.bar.whatsapp + "?text=" + encodeURIComponent(m.wa(d));
     var show = function (txt) { $("#okText").textContent = txt; $("#resOk").hidden = false; $("#resOk").scrollIntoView({ behavior: "smooth", block: "nearest" }); };
-    var mail = S.bar.bookingEmail;
+    var mail = S.bar.web3formsKey;
     if (!mail) { $("#okTitle").textContent = lang === "pl" ? "Prawie gotowe!" : EN["ok.title"]; $("#waLink").hidden = false; show(m.ok(d)); return; }
     // Rezerwacja leci mailem do baru (FormSubmit), WhatsApp zostaje jako zapas
     var btn = f.querySelector('button[type="submit"]'); btn.disabled = true; var label = btn.textContent; btn.textContent = m.sendingRes;
     // Limit czasu: jeśli serwis maili nie odpowie w 12 s, pokazujemy WhatsApp zamiast wiecznego „Wysyłanie…”
     var ctl = window.AbortController ? new AbortController() : null;
     var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 12000);
-    fetch("https://formsubmit.co/ajax/" + mail, {
+    fetch("https://api.web3forms.com/submit", {
       signal: ctl ? ctl.signal : undefined,
       method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify({
-        _subject: "Rezerwacja: " + d.name + ", " + d.people + " os., " + d.dateTxt + " " + d.time,
-        _template: "table", _captcha: "false",
+        access_key: S.bar.web3formsKey,
+        subject: "Rezerwacja: " + d.name + ", " + d.people + " os., " + d.dateTxt + " " + d.time,
+        from_name: "Och! & Ach! – strona",
         "Imię": d.name, "Telefon": d.phone, "Data": d.dateTxt, "Godzina": d.time, "Liczba osób": d.people,
         "Studenci": d.student ? "tak" : "nie", "Uwagi": d.note || "-", "Język strony": lang
       })

@@ -21,9 +21,9 @@ window.SITE = {
       en: "Karaoke, shots, beer and cocktails in a cellar on Chmielna. The mic is waiting, so is the crew."
     },
     address: "ul. Chmielna 5, 00-021 Warszawa",
-    // Mail, na który przychodzą rezerwacje ze strony (przez FormSubmit). Pusto = tylko WhatsApp.
-    // Za pierwszym razem FormSubmit wyśle na ten adres mail z przyciskiem „Activate” — trzeba go kliknąć.
-    bookingEmail: "kontakt.ochach@gmail.com",
+    // Rezerwacje ze strony idą mailem przez Web3Forms (publiczny klucz formularza). Pusto = tylko WhatsApp.
+    // Adres odbiorcy ustawia się w panelu Web3Forms (app.web3forms.com).
+    web3formsKey: "26048607-a3a1-4ec8-b790-5128b4576137",
     district: "Śródmieście",
     phone: "+48 790 627 246",
     whatsapp: "48790627246",
